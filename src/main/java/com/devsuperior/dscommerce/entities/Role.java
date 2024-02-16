@@ -1,22 +1,26 @@
 package com.devsuperior.dscommerce.entities;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
+import java.io.Serial;
 
 @Entity
 @Table(name = "tb_role")
-public class Role {
+public class Role implements GrantedAuthority {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String authoriry;
+    private String authority;
 
     public Role() {
     }
 
-    public Role(Long id, String authoriry) {
+    public Role(Long id, String authority) {
         this.id = id;
-        this.authoriry = authoriry;
+        this.authority = authority;
     }
 
     public Long getId() {
@@ -27,11 +31,12 @@ public class Role {
         this.id = id;
     }
 
-    public String getAuthoriry() {
-        return authoriry;
+    @Override
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setAuthoriry(String authoriry) {
-        this.authoriry = authoriry;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }
