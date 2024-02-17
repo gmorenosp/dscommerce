@@ -23,7 +23,7 @@ public class OrderDTO {
     private List<OrderItemDTO> items = new ArrayList<>();
 
     public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
-        Id = id;
+        this.Id = id;
         this.moment = moment;
         this.status = status;
         this.client = client;
