@@ -16,7 +16,8 @@ private List<FieldMessage> erros = new ArrayList<>();
         return erros;
     }
 
-    public void addError(String fieldName, String message){
+    public void addError(String fieldName, String message) {
+        erros.removeIf(x -> x.getFieldName().equals(fieldName));
         erros.add(new FieldMessage(fieldName, message));
     }
 
