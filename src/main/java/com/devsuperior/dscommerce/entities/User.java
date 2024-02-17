@@ -85,6 +85,17 @@ public class User implements UserDetails {
         this.birthDate = birthDate;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -119,14 +130,5 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public List<Order> getOrders() {
-        return orders;
-    }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
 }
